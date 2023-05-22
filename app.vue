@@ -11,7 +11,7 @@ async function addTodo() {
     },
   });
 
-  todos.value.push(todo);
+  todos.value!.push(todo);
   newTodo.value = "";
 }
 </script>

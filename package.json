@@ -16,6 +16,7 @@
     "nuxt": "^3.5.1"
   },
   "dependencies": {
+    "better-sqlite3": "^8.4.0",
     "drizzle-orm": "^0.26.0",
     "h3-zod": "^0.5.1",
     "zod": "^3.21.4"
