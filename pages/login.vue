@@ -6,24 +6,20 @@ const toast = useToast();
 async function handleLogin() {
   if (!email.value || !password.value) return;
 
-  try {
-    const data = await $fetch("/api/login", {
-      method: "POST",
-      body: {
-        email: email.value,
-        password: password.value,
-      },
-    });
+  const data = await $fetch("/api/login", {
+    method: "POST",
+    body: {
+      email: email.value,
+      password: password.value,
+    },
+  });
 
-    if (data) {
-      toast.add({ title: data.error });
-      return;
-    }
-
-    navigateTo("/");
-  } catch (error) {
-    console.log(error);
+  if (data) {
+    toast.add({ title: data.error });
+    return;
   }
+
+  navigateTo("/");
 }
 </script>
 

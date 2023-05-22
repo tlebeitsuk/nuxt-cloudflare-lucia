@@ -6,17 +6,15 @@ const user = data.value.user;
 if (!user) await navigateTo("/login");
 
 const handleLogout = async () => {
-  try {
-    const data = await $fetch("/api/logout", {
-      method: "POST",
-    });
-    if (data) {
-      return;
-    }
-    navigateTo("/login");
-  } catch (error) {
-    console.log(error);
+  const data = await $fetch("/api/logout", {
+    method: "POST",
+  });
+
+  if (data) {
+    return;
   }
+
+  navigateTo("/login");
 };
 </script>
 <template>

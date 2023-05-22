@@ -4,7 +4,7 @@ import { LuciaError } from "lucia-auth";
 export default defineEventHandler(async (event) => {
   const { email, password } = await useValidatedBody(event, {
     email: z.string().email(),
-    password: z.string().min(6)
+    password: z.string().min(8).max(64)
   })
 
   try {
