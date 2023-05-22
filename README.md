@@ -1,42 +1,34 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 + Cloudflare (Pages + D1)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Demo using Nuxt and Cloudflare Pages + D1 database.
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
+Inspired by: https://github.com/Atinux/nuxt-todos-edge
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`
+Install dependencies
+
+```
+pnpm i
+```
+
+Add schema to database
+
+```
+sqlite3 db.sqlite < ./server/db/migrations/0000_harsh_goblin_queen.sql
+```
+
+Development server
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Production
 
-Build the application for production:
+### Pages
+Create a CF pages deployment linked to your GitHub repository.
 
-```bash
-npm run build
-```
+### D1
+In the CF Pages project settings -> Functions, add the binding between your D1 database and the DB variable.
 
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
