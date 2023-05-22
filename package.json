@@ -2,24 +2,24 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-		"build": "NODE_OPTIONS=--experimental-global-webcrypto nuxt build",
-		"dev": "NODE_OPTIONS=--experimental-global-webcrypto nuxt dev",
-		"generate": "NODE_OPTIONS=--experimental-global-webcrypto nuxt generate",
-		"preview": "NODE_OPTIONS=--experimental-global-webcrypto nuxt preview",
-		"postinstall": "NODE_OPTIONS=--experimental-global-webcrypto nuxt prepare",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
     "migration": "drizzle-kit generate:sqlite"
   },
   "devDependencies": {
+    "@lucia-auth/adapter-sqlite": "^1.1.1",
     "@nuxt/devtools": "^0.5.0",
     "@nuxthq/ui": "^2.1.0",
     "@types/node": "^18.16.14",
-    "drizzle-kit": "^0.18.0",
-    "nuxt": "^3.5.1",
-    "@lucia-auth/adapter-sqlite": "^1.1.1",
     "better-sqlite3": "^8.4.0",
+    "drizzle-kit": "^0.18.0",
     "drizzle-orm": "^0.26.0",
     "h3-zod": "^0.5.1",
     "lucia-auth": "^1.7.0",
+    "nuxt": "^3.5.1",
     "zod": "^3.21.4"
   }
 }

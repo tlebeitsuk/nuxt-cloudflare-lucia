@@ -1,17 +1,9 @@
 import lucia from "lucia-auth";
 import { h3 } from "lucia-auth/middleware";
-import { d1, betterSqlite3 } from "@lucia-auth/adapter-sqlite";
-// @ts-ignore
-import Database from 'better-sqlite3'
-
-let sqlite
-
-if (process.dev) {
-  sqlite = new Database('./db.sqlite')
-}
+import { d1 } from "@lucia-auth/adapter-sqlite";
 
 export const auth = lucia({
-  adapter: process.dev ? betterSqlite3(sqlite) : d1(process.env.DB),
+  adapter: d1(process.env.DB),
   env: process.dev ? "DEV" : "PROD",
   middleware: h3(),
   transformDatabaseUser: (userData) => {
@@ -21,5 +13,3 @@ export const auth = lucia({
     };
   }
 });
-
-export type Auth = typeof auth;
