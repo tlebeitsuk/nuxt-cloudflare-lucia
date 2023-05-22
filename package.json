@@ -2,11 +2,11 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+		"build": "NODE_OPTIONS=--experimental-global-webcrypto nuxt build",
+		"dev": "NODE_OPTIONS=--experimental-global-webcrypto nuxt dev",
+		"generate": "NODE_OPTIONS=--experimental-global-webcrypto nuxt generate",
+		"preview": "NODE_OPTIONS=--experimental-global-webcrypto nuxt preview",
+		"postinstall": "NODE_OPTIONS=--experimental-global-webcrypto nuxt prepare",
     "migration": "drizzle-kit generate:sqlite"
   },
   "devDependencies": {

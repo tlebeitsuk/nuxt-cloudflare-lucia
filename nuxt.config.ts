@@ -4,7 +4,4 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@nuxthq/ui'
   ],
-  nitro: {
-    moduleSideEffects: ["lucia-auth/polyfill/node"]
-  },
 })

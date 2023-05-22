@@ -1,5 +1,4 @@
 import lucia from "lucia-auth";
-import "lucia-auth/polyfill/node";
 import { h3 } from "lucia-auth/middleware";
 import { d1, betterSqlite3 } from "@lucia-auth/adapter-sqlite";
 // @ts-ignore
