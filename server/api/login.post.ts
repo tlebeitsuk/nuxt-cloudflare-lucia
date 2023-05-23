@@ -1,11 +1,11 @@
-import { useValidatedBody, z } from 'h3-zod'
+import { useValidatedBody, z } from "h3-zod";
 import { LuciaError } from "lucia-auth";
 
 export default defineEventHandler(async (event) => {
   const { email, password } = await useValidatedBody(event, {
     email: z.string().email(),
-    password: z.string().min(8).max(128)
-  })
+    password: z.string().min(8).max(128),
+  });
 
   try {
     const authRequest = useAuth().handleRequest(event);
@@ -20,13 +20,13 @@ export default defineEventHandler(async (event) => {
         error.message === "AUTH_INVALID_PASSWORD")
     ) {
       return {
-        error: "Incorrect username or password"
+        error: "Incorrect username or password",
       };
     }
     // database connection error
     console.log(error);
     return {
-      error: "An unknown error occurred"
+      error: "An unknown error occurred",
     };
   }
 });

@@ -12,7 +12,7 @@ export const authSession = sqliteTable("auth_session", {
     .notNull()
     .references(() => authUser.id),
   activeExpires: integer("active_expires").notNull(),
-  idleExpires: integer("idle_expires").notNull()
+  idleExpires: integer("idle_expires").notNull(),
 });
 
 export const authKey = sqliteTable("auth_key", {
@@ -22,5 +22,5 @@ export const authKey = sqliteTable("auth_key", {
     .references(() => authUser.id),
   primaryKey: integer("primary_key").notNull(),
   hashedPassword: text("hashed_password"),
-  expires: integer("expires")
+  expires: integer("expires"),
 });

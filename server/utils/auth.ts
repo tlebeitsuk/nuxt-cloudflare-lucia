@@ -14,13 +14,13 @@ export const useAuth = () => {
       transformDatabaseUser: (userData) => {
         return {
           userId: userData.id,
-          email: userData.email
+          email: userData.email,
         };
-      }
+      },
     });
   }
 
-  return _auth
-} 
+  return _auth;
+};
 
 export type Auth = typeof _auth;
