@@ -1,6 +1,6 @@
 # Nuxt 3 + Cloudflare (Pages + D1) + Auth (Lucia)
 
-A demo using [Nuxt](https://nuxt.com), Cloudflare [Pages](https://pages.cloudflare.com) + [D1](https://developers.cloudflare.com/d1) database and [Lucia](https://lucia-auth.com/?nuxt) auth.
+A demo using [Nuxt](https://nuxt.com), Cloudflare [Pages](https://pages.cloudflare.com) + [D1](https://developers.cloudflare.com/d1) database, [Drizzle ORM](https://orm.drizzle.team) and [Lucia](https://lucia-auth.com/?nuxt) auth.
 
 Inspired by: [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-edge)
 
@@ -44,6 +44,8 @@ wrangler d1 create <DATABASE_NAME>
 ----
 filename: wrangler.toml
 ----
+name = "YOU PROJECT NAME"
+main = "./.output/server/index.mjs"
 
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
@@ -51,17 +53,18 @@ database_name = "<DATABASE_NAME>"
 database_id = "<unique-ID-for-your-database>"
 ```
 
-### Lucia
-Add schema to database:
-
-Local:
+To init local database and run server locally:
 
 ```bash
-wrangler d1 execute <DATABASE_NAME> --local --file server/db/migrations/0000_cultured_fixer.sql 
+
+```bash
+wrangler d1 execute <DATABASE_NAME> --local --file server/db/migrations/0000_cultured_fixer.sql
+wrangler dev --local --persist
 ```
 
 Deploy:
 
 ```bash
-wrangler d1 execute <DATABASE_NAME> --file server/db/migrations/0000_cultured_fixer.sql 
+wrangler d1 execute <DATABASE_NAME> --file server/db/migrations/0000_cultured_fixer.sql
+wrangler deploy
 ```

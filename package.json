@@ -14,7 +14,6 @@
     "@nuxt/devtools": "^0.5.1",
     "@nuxthq/ui": "^2.1.0",
     "@types/node": "^20.2.3",
-    "better-sqlite3": "^8.4.0",
     "drizzle-kit": "^0.18.0",
     "drizzle-orm": "^0.26.0",
     "h3-zod": "^0.5.1",

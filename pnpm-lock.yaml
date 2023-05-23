@@ -3,7 +3,7 @@ lockfileVersion: '6.0'
 devDependencies:
   '@lucia-auth/adapter-sqlite':
     specifier: ^1.1.1
-    version: 1.1.1(better-sqlite3@8.4.0)(lucia-auth@1.7.0)
+    version: 1.1.1(lucia-auth@1.7.0)
   '@nuxt/devtools':
     specifier: ^0.5.1
     version: 0.5.1(nuxt@3.5.1)(vite@4.3.8)
@@ -13,15 +13,12 @@ devDependencies:
   '@types/node':
     specifier: ^20.2.3
     version: 20.2.3
-  better-sqlite3:
-    specifier: ^8.4.0
-    version: 8.4.0
   drizzle-kit:
     specifier: ^0.18.0
     version: 0.18.0
   drizzle-orm:
     specifier: ^0.26.0
-    version: 0.26.0(better-sqlite3@8.4.0)
+    version: 0.26.0
   h3-zod:
     specifier: ^0.5.1
     version: 0.5.1(h3@1.6.6)(zod@3.21.4)
@@ -1046,7 +1043,7 @@ packages:
       - supports-color
     dev: true
 
-  /@lucia-auth/adapter-sqlite@1.1.1(better-sqlite3@8.4.0)(lucia-auth@1.7.0):
+  /@lucia-auth/adapter-sqlite@1.1.1(lucia-auth@1.7.0):
     resolution: {integrity: sha512-u9d1iUcyxZepQ+HXgLMRyIk0E9lTaiQsD7zJNLim/jaK16TWmchS68cIbAF1m+Z9rFkVFinNmWXPcA620xUmXg==}
     peerDependencies:
       better-sqlite3: ^8.0.0
@@ -1055,7 +1052,6 @@ packages:
       better-sqlite3:
         optional: true
     dependencies:
-      better-sqlite3: 8.4.0
       lucia-auth: 1.7.0
     dev: true
 
@@ -3413,7 +3409,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.26.0(better-sqlite3@8.4.0):
+  /drizzle-orm@0.26.0:
     resolution: {integrity: sha512-ztjhHehcuG5+lpGYxfT/L5I+yd/Z0dOf0fV3cS2ywBU01wkpxjwl4EJZVT7kVzjYfM8kwMGDghAPRPBCK0vULA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3471,8 +3467,6 @@ packages:
         optional: true
       sqlite3:
         optional: true
-    dependencies:
-      better-sqlite3: 8.4.0
     dev: true
 
   /duplexer2@0.1.4:
