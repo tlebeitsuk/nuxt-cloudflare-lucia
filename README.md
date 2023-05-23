@@ -2,12 +2,13 @@
 
 A demo using [Nuxt](https://nuxt.com), Cloudflare [Pages](https://pages.cloudflare.com) + [D1](https://developers.cloudflare.com/d1) database and [Lucia](https://lucia-auth.com/?nuxt) auth.
 
-Inspired by [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-edge)
+Inspired by: [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-edge)
 
 ## Setup
 
 ### Pages
 A. Create a CF pages deployment linked to your GitHub repository.
+
 B. Use [Wrangler](https://developers.cloudflare.com/workers/wrangler):
 
 ```bash
