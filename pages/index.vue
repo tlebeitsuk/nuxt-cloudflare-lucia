@@ -1,20 +1,19 @@
 <script lang="ts" setup>
 const { data } = await useFetch("/api/user");
 if (!data.value) throw createError("Failed to fetch data");
-
 const user = data.value.user;
 if (!user) await navigateTo("/login");
 
 const handleLogout = async () => {
-  const data = await $fetch("/api/logout", {
-    method: "POST",
-  });
+  try {
+    await $fetch("/api/logout", {
+      method: "POST",
+    });
 
-  if (data) {
-    return;
+    navigateTo("/login");
+  } catch (error) {
+    console.log(error);
   }
-
-  navigateTo("/login");
 };
 </script>
 <template>

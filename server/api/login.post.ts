@@ -8,9 +8,9 @@ export default defineEventHandler(async (event) => {
   })
 
   try {
-    const authRequest = auth.handleRequest(event);
-    const key = await auth.useKey("email", email, password);
-    const session = await auth.createSession(key.userId);
+    const authRequest = useAuth().handleRequest(event);
+    const key = await useAuth().useKey("email", email, password);
+    const session = await useAuth().createSession(key.userId);
     authRequest.setSession(session);
     return null;
   } catch (error) {

@@ -1,34 +1,66 @@
-# Nuxt 3 + Cloudflare (Pages + D1)
+# Nuxt 3 + Cloudflare (Pages + D1) + Auth (Lucia)
 
-Demo using Nuxt and Cloudflare Pages + D1 database.
+A demo using [Nuxt](https://nuxt.com), Cloudflare [Pages](https://pages.cloudflare.com) + [D1](https://developers.cloudflare.com/d1) database and [Lucia](https://lucia-auth.com/?nuxt) auth.
 
-Inspired by: https://github.com/Atinux/nuxt-todos-edge
+Inspired by [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-edge)
 
-## Development Server
-
-Install dependencies
-
-```
-pnpm i
-```
-
-Add schema to database
-
-```
-sqlite3 db.sqlite < ./server/db/migrations/0000_harsh_goblin_queen.sql
-```
-
-Development server
-
-```bash
-pnpm dev
-```
-
-## Production
+## Setup
 
 ### Pages
-Create a CF pages deployment linked to your GitHub repository.
+A. Create a CF pages deployment linked to your GitHub repository.
+B. Use [Wrangler](https://developers.cloudflare.com/workers/wrangler):
+
+```bash
+pnpm build
+```
+
+Preview build (setup D1 first):
+
+```bash
+pnpm wrangler pages dev dist
+```
+
+Deploy build to CF: 
+
+```bash
+pnpm wrangler pages publish dist
+```
 
 ### D1
+A. Create a D1 database in CF.
+
 In the CF Pages project settings -> Functions, add the binding between your D1 database and the DB variable.
 
+B. Use Wrangler:
+
+```bash
+wrangler d1 create <DATABASE_NAME>
+```
+
+[Bind](https://developers.cloudflare.com/d1/get-started/#4-bind-your-worker-to-your-d1-database) Worker with D1 database:
+
+```bash
+----
+filename: wrangler.toml
+----
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "<DATABASE_NAME>"
+database_id = "<unique-ID-for-your-database>"
+```
+
+### Lucia
+Add schema to database:
+
+Local:
+
+```bash
+wrangler d1 execute <DATABASE_NAME> --local --file server/db/migrations/0000_cultured_fixer.sql 
+```
+
+Deploy:
+
+```bash
+wrangler d1 execute <DATABASE_NAME> --file server/db/migrations/0000_cultured_fixer.sql 
+```

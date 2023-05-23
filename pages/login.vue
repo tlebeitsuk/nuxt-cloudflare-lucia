@@ -1,4 +1,11 @@
 <script setup lang="ts">
+const { data } = await useFetch("/api/user");
+if (!data.value) throw createError("Failed to fetch data");
+const user = data.value.user;
+if (user) {
+  await navigateTo("/");
+}
+
 const email = ref("");
 const password = ref("");
 const toast = useToast();

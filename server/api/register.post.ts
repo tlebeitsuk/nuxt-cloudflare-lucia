@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   })
 
   try {
-    const user = await auth.createUser({
+    const user = await useAuth().createUser({
       primaryKey: {
         providerId: "email",
         providerUserId: email,
@@ -18,10 +18,10 @@ export default defineEventHandler(async (event) => {
         email
       }
     });
-    const session = await auth.createSession(user.userId);
-    const authRequest = auth.handleRequest(event);
+    const session = await useAuth().createSession(user.userId);
+    const authRequest = useAuth().handleRequest(event);
     authRequest.setSession(session);
-    return null;
+    return null
   } catch (error) {
     if (
       error instanceof LuciaError &&
