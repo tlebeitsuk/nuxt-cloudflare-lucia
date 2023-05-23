@@ -18,8 +18,6 @@ export default defineEventHandler(async (event) => {
         email
       }
     });
-
-    console.log(user)
     const session = await auth.createSession(user.userId);
     const authRequest = auth.handleRequest(event);
     authRequest.setSession(session);
