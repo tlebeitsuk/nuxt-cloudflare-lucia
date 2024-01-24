@@ -56,8 +56,6 @@ database_id = "<unique-ID-for-your-database>"
 To init local database and run server locally:
 
 ```bash
-
-```bash
 wrangler d1 execute <DATABASE_NAME> --local --file server/db/migrations/0000_cultured_fixer.sql
 wrangler dev --local --persist
 ```
