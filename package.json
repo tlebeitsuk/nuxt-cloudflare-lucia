@@ -10,16 +10,18 @@
     "migration": "drizzle-kit generate:sqlite"
   },
   "devDependencies": {
-    "@lucia-auth/adapter-sqlite": "^1.1.1",
-    "@nuxt/devtools": "^0.5.1",
-    "@nuxthq/ui": "^2.1.0",
-    "@types/node": "^20.2.3",
-    "drizzle-kit": "^0.18.0",
-    "drizzle-orm": "^0.26.0",
-    "h3-zod": "^0.5.1",
-    "lucia-auth": "^1.7.0",
-    "nuxt": "^3.5.1",
-    "wrangler": "^3.0.1",
-    "zod": "^3.21.4"
+    "@types/node": "^20.11.8",
+    "drizzle-kit": "^0.20.13",
+    "h3-zod": "^0.5.3",
+    "nuxt": "^3.9.3",
+    "wrangler": "^3.25.0",
+    "zod": "^3.22.4"
+  },
+  "dependencies": {
+    "@lucia-auth/adapter-sqlite": "^3.0.0",
+    "@nuxt/ui": "^2.12.3",
+    "drizzle-orm": "^0.29.3",
+    "lucia": "^3.0.0",
+    "oslo": "^1.0.2"
   }
 }
