@@ -10,3 +10,5 @@ dist
 db.sqlite
 wrangler.toml
 .wrangler
+
+.wrangler/state/v3

@@ -7,6 +7,7 @@ Inspired by: [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-e
 ## Setup
 
 ### Pages
+
 A. Create a CF pages deployment linked to your GitHub repository.
 
 B. Use [Wrangler](https://developers.cloudflare.com/workers/wrangler):
@@ -21,13 +22,14 @@ Preview build (setup D1 first):
 pnpm wrangler pages dev dist
 ```
 
-Deploy build to CF: 
+Deploy build to CF:
 
 ```bash
 pnpm wrangler pages publish dist
 ```
 
 ### D1
+
 A. Create a D1 database in CF.
 
 In the CF Pages project settings -> Functions, add the binding between your D1 database and the DB variable.

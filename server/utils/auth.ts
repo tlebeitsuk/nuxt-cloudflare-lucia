@@ -1,26 +1,40 @@
-import lucia from "lucia-auth";
-import { d1 } from "@lucia-auth/adapter-sqlite";
-import { h3 } from "lucia-auth/middleware";
-import type { Auth as LAuth, Configuration } from "lucia-auth";
+import { Lucia } from "lucia"
+import { D1Adapter } from "@lucia-auth/adapter-sqlite"
+import { GitHub } from "arctic"
 
-let _auth: LAuth<Configuration> | null = null;
-
-export const useAuth = () => {
-  if (!_auth) {
-    _auth = lucia({
-      adapter: d1(process.env.DB),
-      env: process.dev ? "DEV" : "PROD",
-      middleware: h3(),
-      transformDatabaseUser: (userData) => {
-        return {
-          userId: userData.id,
-          email: userData.email,
-        };
+export function initializeLucia(D1: D1Database) {
+  const adapter = new D1Adapter(D1, {
+    user: "user",
+    session: "session",
+  })
+  return new Lucia(adapter, {
+    sessionCookie: {
+      attributes: {
+        secure: !import.meta.dev,
       },
-    });
+    },
+    getUserAttributes: (attributes) => {
+      return {
+        username: attributes.username,
+        name: attributes.name,
+      }
+    },
+  })
+}
+
+export const github = new GitHub(
+  process.env.GITHUB_CLIENT_ID!,
+  process.env.GITHUB_CLIENT_SECRET!
+)
+
+declare module "lucia" {
+  interface Register {
+    Lucia: ReturnType<typeof initializeLucia>
+    DatabaseUserAttributes: DatabaseUserAttributes
   }
+}
 
-  return _auth;
-};
-
-export type Auth = typeof _auth;
+interface DatabaseUserAttributes {
+  name: string
+  username: string
+}

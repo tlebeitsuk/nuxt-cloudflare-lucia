@@ -1,0 +1,6 @@
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "demo"
+database_id = "6ac5edb1-4e08-41d2-9950-522d926cdfa9"
+preview_database_id = "DB"
+migrations_dir = "./server/db/migrations"

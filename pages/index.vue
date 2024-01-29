@@ -1,20 +1,21 @@
 <script lang="ts" setup>
-const { data } = await useFetch("/api/user");
-if (!data.value) throw createError("Failed to fetch data");
-const user = data.value.user;
-if (!user) await navigateTo("/login");
+const { data } = await useFetch("/api/user")
 
-const handleLogout = async () => {
+if (!data.value) {
+  navigateTo("/login")
+}
+
+async function handleLogout() {
   try {
     await $fetch("/api/logout", {
       method: "POST",
-    });
+    })
 
-    navigateTo("/login");
+    navigateTo("/login")
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
+}
 </script>
 <template>
   <UContainer class="h-screen flex justify-center items-center">
@@ -23,7 +24,7 @@ const handleLogout = async () => {
         This page is protected and can only be accessed by authenticated users.
       </template>
 
-      <pre class="code">{{ JSON.stringify(user, null, 2) }}</pre>
+      <pre class="code">{{ JSON.stringify(data, null, 2) }}</pre>
       <template #footer class="foat-right">
         <UButton label="Logout" @click="handleLogout" />
       </template>

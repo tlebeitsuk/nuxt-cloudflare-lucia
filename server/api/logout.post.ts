@@ -1,15 +1,15 @@
-export default defineEventHandler(async (event) => {
-  const authRequest = useAuth().handleRequest(event);
-  const { session } = await authRequest.validateUser();
+export default eventHandler(async (event) => {
+  const lucia = event.context.lucia
 
-  if (!session) {
+  if (!event.context.session) {
     throw createError({
-      statusCode: 401,
-      statusMessage: "Unauthorized",
-    });
+      statusCode: 403,
+    })
   }
-
-  await useAuth().invalidateSession(session.sessionId); // invalidate current session
-  authRequest.setSession(null); // remove session cookie
-  return null;
-});
+  await lucia.invalidateSession(event.context.session.id)
+  appendHeader(
+    event,
+    "Set-Cookie",
+    lucia.createBlankSessionCookie().serialize()
+  )
+})
