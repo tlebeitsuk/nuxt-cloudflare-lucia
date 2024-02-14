@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-
 const email = ref("")
 const password = ref("")
 const toast = useToast()
