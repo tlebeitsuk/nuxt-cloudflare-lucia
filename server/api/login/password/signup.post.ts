@@ -1,5 +1,5 @@
 import { generateId } from "lucia"
-import { Argon2id } from "oslo/password"
+import { Scrypt } from "lucia"
 import { user } from "@/server/db/schema"
 
 export default defineEventHandler(async (event) => {
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const hashedPassword = await new Argon2id().hash(password)
+  const hashedPassword = await new Scrypt().hash(password)
   const userId = generateId(15)
 
   try {

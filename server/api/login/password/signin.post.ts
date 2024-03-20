@@ -1,4 +1,4 @@
-import { Argon2id } from "oslo/password"
+import { Scrypt } from "lucia"
 import { user } from "@/server/db/schema"
 import { eq } from "drizzle-orm"
 
@@ -55,7 +55,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const validPassword = await new Argon2id().verify(
+  const validPassword = await new Scrypt().verify(
     existingUser.hashedPassword,
     password
   )
