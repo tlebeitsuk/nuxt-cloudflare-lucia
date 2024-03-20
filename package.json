@@ -15,15 +15,15 @@
   "devDependencies": {
     "drizzle-kit": "^0.20.14",
     "nitro-cloudflare-dev": "^0.0.7",
-    "nuxt": "^3.10.1",
-    "wrangler": "^3.28.2"
+    "nuxt": "^3.11.1",
+    "wrangler": "^3.35.0"
   },
   "dependencies": {
-    "@lucia-auth/adapter-sqlite": "^3.0.0",
-    "@nuxt/ui": "^2.13.0",
-    "arctic": "^1.1.4",
-    "drizzle-orm": "^0.29.3",
-    "lucia": "^3.0.1",
-    "oslo": "^1.1.1"
+    "@lucia-auth/adapter-sqlite": "^3.0.1",
+    "@nuxt/ui": "^2.14.2",
+    "arctic": "^1.2.1",
+    "drizzle-orm": "^0.30.4",
+    "lucia": "^3.1.1",
+    "oslo": "^1.1.3"
   }
 }
