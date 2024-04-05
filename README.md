@@ -2,7 +2,9 @@
 
 A demo using [Nuxt](https://nuxt.com), Cloudflare [Pages](https://pages.cloudflare.com) + [D1](https://developers.cloudflare.com/d1) database, [Drizzle ORM](https://orm.drizzle.team) and [Lucia](https://lucia-auth.com/?nuxt) auth.
 
-Inspired by: [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-edge)
+Inspired by [Nuxt Todo List on the Edge](https://github.com/Atinux/nuxt-todos-edge).
+
+Take a look at [NuxtHub](https://github.com/nuxt-hub/core) for a more complete solution.
 
 ## Setup
 
