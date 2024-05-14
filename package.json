@@ -13,17 +13,17 @@
     "db:studio": "drizzle-kit studio"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.20.14",
+    "drizzle-kit": "^0.20.18",
     "nitro-cloudflare-dev": "^0.0.7",
-    "nuxt": "^3.11.1",
-    "wrangler": "^3.35.0"
+    "nuxt": "^3.11.2",
+    "wrangler": "^3.55.0"
   },
   "dependencies": {
     "@lucia-auth/adapter-sqlite": "^3.0.1",
-    "@nuxt/ui": "^2.14.2",
-    "arctic": "^1.2.1",
-    "drizzle-orm": "^0.30.4",
-    "lucia": "^3.1.1",
-    "oslo": "^1.1.3"
+    "@nuxt/ui": "^2.16.0",
+    "arctic": "^1.8.1",
+    "drizzle-orm": "^0.30.10",
+    "lucia": "^3.2.0",
+    "oslo": "^1.2.0"
   }
 }
