@@ -47,9 +47,9 @@ async function handleRegister() {
 <template>
   <UContainer class="h-screen flex justify-center items-center">
     <UCard class="w-80">
-      <template #header>Login</template>
+      <template #header>Sign in</template>
       <div class="space-y-4">
-        <UButton block label="Login with GitHub" icon="i-heroicons-oauth" to="/api/login/github" external />
+        <UButton block label="Login with GitHub" icon="i-heroicons-finger-print" to="/api/login/github" external />
         <p class="text-center text-sm py-1 text-gray-400">OR</p>
         <UInput v-model="username" name="username" placeholder="Username" icon="i-heroicons-user" />
         <UInput v-model="password" type="password" name="password" placeholder="Password" icon="i-heroicons-lock-closed" />
