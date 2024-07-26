@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare",
     "db:generate": "drizzle-kit generate:sqlite",
     "db:migrate": "wrangler d1 migrations apply demo --local",
-    "db:migrate:prod": "wranger d1 migrations apply demo",
+    "db:migrate:prod": "wrangler d1 migrations apply demo",
     "db:studio": "drizzle-kit studio"
   },
   "devDependencies": {
